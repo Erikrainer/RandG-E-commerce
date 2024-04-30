@@ -6,6 +6,9 @@
 
 My Challenge is to build the back end for an e-commerce site. I’ll take a working Express.js API and configure it to use Sequelize to interact with a PostgreSQL database.
 
+ER Diagram:
+![ER Diagram RandG-E-commerce](https://github.com/Erikrainer/RandG-E-commerce/assets/160955635/5ada483e-ca14-4824-9252-76eb2a761ea0)
+
 ## Table of Contents 🗒
 
 * [Installations](#installations-💻)
