@@ -10,6 +10,8 @@ const sequelize = process.env.DB_URL
       dialectOptions: {
         decimalNumbers: true,
       },
+      
     });
+Sequelize.postgres.DECIMAL.parse = function (value) { return parseFloat(value); };
 
 module.exports = sequelize;
