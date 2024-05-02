@@ -50,12 +50,13 @@ npm run start
 ## Usage 🏆
 
 1. After creating the database with schema
-2. You need to populate the database using seed
-3. Run the server
-4. With the API you have a few commands that you can do (Insomnia Recommended)
-5. You can GET All, Get One, CREATE, UPDATE and DELETE.
-6. Products, Categories and Tags are the option
-7. localhost:3001/api/(Products, Categories or Tags)
+2. Check your creds in the .env file
+3. You need to populate the database using seed
+4. Run the server
+5. With the API you have a few commands that you can do (Insomnia Recommended)
+6. You can GET All, Get One, CREATE, UPDATE and DELETE.
+7. Products, Categories and Tags are the option
+8. localhost:3001/api/(Products, Categories or Tags)
 
 ![Screenshot 2024-05-02 092233](https://github.com/Erikrainer/RandG-E-commerce/assets/160955635/2ce5d164-3013-4bd7-a4b0-139988bad652)
 
