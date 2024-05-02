@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const CategoryCardData = await Category.findByPk(req.params.id, {
-      include: [{ model: Product }],
+      include: [{ model: Product}],
     });
     if(!CategoryCardData){
       res.status(404).json({
@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const CategoryCardData = await Category.create({
-      product_id: req.body.product_id,
+      category_name: req.body.category_name,
     });
     res.status(200).json(CategoryCardData);
   } catch(error) {

@@ -7,7 +7,10 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', async (req, res) => {
   try{ 
     const productData = await Product.findAll({
-      include: [{ model: Category,include:["id","category_name"], model: ProductTag, include: [Tag]}],
+      include: [
+        { model: Category, attributes: ["id", "category_name"] }, // Include associated Category data
+        { model: ProductTag, include: [{ model:Tag, attributes:["id", "tag_name"]}] }    // Include associated ProductTag and Tag data
+      ],
       });
       res.status(200).json(productData);
   } catch(error) {
@@ -21,7 +24,10 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try{
     const productData = await Product.findByPk(req.params.id, {
-      include: [{ model: Category,include:["id", "category_name"], model: ProductTag, include: [Tag]}],
+      include: [
+        { model: Category, attributes: ["id", "category_name"] }, // Include associated Category data
+        { model: ProductTag, include: [{ model:Tag, attributes:["id", "tag_name"]}] }    // Include associated ProductTag and Tag data
+      ],
     });
     if(!productData){
       res.status(404).json({
@@ -38,14 +44,8 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new product
-router.post('/', async (req, res) => {
-  try{ 
-    const productData = await Product.create({
-      product_name: req.body.product_name,
-      price: req.body.price,
-      stock: req.body.stock,
-      category_id: req.body.category_id,
-    });
+router.post('/', (req, res) => {
+
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -74,10 +74,8 @@ router.post('/', async (req, res) => {
       console.log(err);
       res.status(400).json(err);
     });
-    res.status(200).json(productData);
-  }catch(error) {
-    res.status(500).json(error);
-}});
+  });
+
 
 // update product
 router.put('/:id', (req, res) => {
