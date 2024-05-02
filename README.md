@@ -25,7 +25,7 @@ ER Diagram:
 
 ## Installations  💻
 
-Deployed link: TBD 
+Walkthrough video: https://youtu.be/nbOJKyJZl-A
 
 To install dependencies, run these commands:
 
